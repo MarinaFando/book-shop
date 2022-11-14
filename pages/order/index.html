@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book shop form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <div class="form__container">
+  <form class="form" onSubmit={handleSubmit}>
+    <div class="form__group">
+      <label htmlFor="name">
+        Name:
+        <input
+          type="text"
+          minlength="4"
+          name="name"
+          id="name"
+          placeholder="Name"
+        />
+        <!-- <label
+          htmlFor="name"
+        >
+          Minimal length is 4 chars
+        </label> -->
+      </label>
+    </div>
+    <div class="form__group">
+      <label htmlFor="Surname">
+        Surname:
+        <input
+          type="text"
+          name="surname"
+          id="surname"
+          placeholder="Surname"
+          minlength="5"
+        />
+        <!-- <label
+          htmlFor="surname"
+        >
+          Minimal length is 5 chars
+        </label> -->
+      </label>
+    </div>
+    <div class="form__group">
+      <label htmlFor="delivery">
+        Delivery date:
+        <input
+          type="date"
+          min="new Date()"
+          name="delivery"
+          id="delivery"
+        />
+        <!-- <label
+          htmlFor="delivery"
+        >
+          You must provide delivery date
+        </label> -->
+      </label>
+    </div>
+    <div class="form__group">
+      <label htmlFor="street">
+        Street:
+        <input
+          type="text"
+          minlength="5"
+          name="street"
+          id="street"
+          placeholder="Street"
+        />
+        <!-- <label
+          htmlFor="street"
+        >
+          Minimal length is 5 chars
+        </label> -->
+      </label>
+    </div>
+    <div class="form__group">
+      <label htmlFor="house">
+        House number:
+        <input
+          type="number"
+          name="house"
+          id="house"
+          placeholder="House"
+        />
+        <!-- <label
+          htmlFor="house"
+        >
+          Please enter correct number
+        </label> -->
+      </label>
+    </div>
+    <div class="form__group">
+      <label htmlFor="flat">
+        Flat number:
+        <input
+          type="number"
+          name="flat"
+          id="flat"
+          placeholder="Flat"
+        />
+        <!-- <label
+          htmlFor="flat"
+        >
+         Please enter correct number
+        </label> -->
+      </label>
+    </div>
+    <div class="form__group">
+      <fieldset>
+        <legend>Payment type:</legend>
+        <label htmlFor="male">
+          <input type="radio" name="payment" value="male" id="Cash" defaultChecked />
+          Cash
+        </label>
+        <label htmlFor="Card">
+          <input type="radio" name="payment" value="Card" id="Card" />
+          Card
+        </label>
+      </fieldset>
+    </div>
+    <div class="form__group">
+      Choose 2 gifts:
+      <br>
+      <input
+        type="checkbox"
+        name="gifts"
+        id="giftsCheckbox"
+      />
+      <label htmlFor="gifts">pack as a gift</label>
+      <br>
+      <input
+        type="checkbox"
+        name="gifts"
+        id="giftsCheckbox"
+      />
+      <label htmlFor="gifts">provide 2% discount to the next time</label>
+      <br>
+      <input
+        type="checkbox"
+        name="gifts"
+        id="giftsCheckbox"
+        onChange={}
+      />
+      <label htmlFor="gifts">branded pen or pencil</label>
+      <br>
+      <input
+        type="checkbox"
+        name="gifts"
+        id="giftsCheckbox"
+      />
+      <label htmlFor="gifts">I gifts with terms</label>
+    </div>
+    <button type="submit" value="submit" id="submit">Submit</button>
+  </form>
+</div>
+</body>
+</html>
