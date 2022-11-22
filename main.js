@@ -102,7 +102,7 @@ fetch("assets/books.json")
       bagCard.setAttribute("class", "bagcard");
       bagCardList.appendChild(bagCard);
       const imgclose = document.createElement("img");
-      imgclose.setAttribute("src", "/assets/images/close.svg");
+      imgclose.setAttribute("src", "assets/images/close.svg");
       bagCard.appendChild(imgclose);
       imgclose.addEventListener("click", removeBookFromBag);
       const author = document.createElement("p");
