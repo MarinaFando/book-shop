@@ -7,12 +7,13 @@
   <title>Book shop form</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css">
+
 </head>
 <body>
   <div class="form__container">
-  <form class="form" onSubmit={handleSubmit}>
+  <form class="form" action="#" onSubmit={handleSubmit}>
     <div class="form__group">
-      <label htmlFor="name">
+      <label for="name">
         Name:
         <input
           type="text"
@@ -20,16 +21,17 @@
           name="name"
           id="name"
           placeholder="Name"
+          required="true"
         />
         <!-- <label
-          htmlFor="name"
+          for="name"
         >
           Minimal length is 4 chars
         </label> -->
       </label>
     </div>
     <div class="form__group">
-      <label htmlFor="Surname">
+      <label for="Surname">
         Surname:
         <input
           type="text"
@@ -37,32 +39,34 @@
           id="surname"
           placeholder="Surname"
           minlength="5"
+          required="true"
         />
         <!-- <label
-          htmlFor="surname"
+          for="surname"
         >
           Minimal length is 5 chars
         </label> -->
       </label>
     </div>
     <div class="form__group">
-      <label htmlFor="delivery">
+      <label for="delivery">
         Delivery date:
         <input
           type="date"
-          min="new Date()"
+          min=+new Date()
           name="delivery"
           id="delivery"
+          required="true"
         />
         <!-- <label
-          htmlFor="delivery"
+          for="delivery"
         >
           You must provide delivery date
         </label> -->
       </label>
     </div>
     <div class="form__group">
-      <label htmlFor="street">
+      <label for="street">
         Street:
         <input
           type="text"
@@ -70,54 +74,58 @@
           name="street"
           id="street"
           placeholder="Street"
+          required="true"
+          minlength="5"
         />
         <!-- <label
-          htmlFor="street"
+          for="street"
         >
           Minimal length is 5 chars
         </label> -->
       </label>
     </div>
     <div class="form__group">
-      <label htmlFor="house">
+      <label for="house">
         House number:
         <input
           type="number"
           name="house"
           id="house"
           placeholder="House"
+          required="true"
         />
         <!-- <label
-          htmlFor="house"
+          for="house"
         >
           Please enter correct number
         </label> -->
       </label>
     </div>
     <div class="form__group">
-      <label htmlFor="flat">
+      <label for="flat">
         Flat number:
         <input
           type="number"
           name="flat"
           id="flat"
           placeholder="Flat"
+          required="true"
         />
         <!-- <label
-          htmlFor="flat"
+          for="flat"
         >
          Please enter correct number
         </label> -->
       </label>
     </div>
     <div class="form__group">
-      <fieldset>
+      <fieldset required="true">
         <legend>Payment type:</legend>
-        <label htmlFor="male">
+        <label for="male">
           <input type="radio" name="payment" value="male" id="Cash" defaultChecked />
           Cash
         </label>
-        <label htmlFor="Card">
+        <label for="Card">
           <input type="radio" name="payment" value="Card" id="Card" />
           Card
         </label>
@@ -131,14 +139,14 @@
         name="gifts"
         id="giftsCheckbox"
       />
-      <label htmlFor="gifts">pack as a gift</label>
+      <label for="gifts">pack as a gift</label>
       <br>
       <input
         type="checkbox"
         name="gifts"
         id="giftsCheckbox"
       />
-      <label htmlFor="gifts">provide 2% discount to the next time</label>
+      <label for="gifts">provide 2% discount to the next time</label>
       <br>
       <input
         type="checkbox"
@@ -146,17 +154,18 @@
         id="giftsCheckbox"
         onChange={}
       />
-      <label htmlFor="gifts">branded pen or pencil</label>
+      <label for="gifts">branded pen or pencil</label>
       <br>
       <input
         type="checkbox"
         name="gifts"
         id="giftsCheckbox"
       />
-      <label htmlFor="gifts">I gifts with terms</label>
+      <label for="gifts">I gifts with terms</label>
     </div>
-    <button type="submit" value="submit" id="submit">Submit</button>
+    <button type="submit" value="submit" id="submit" >Complete</button>
   </form>
 </div>
+  <script src="order.js"></script>
 </body>
 </html>
