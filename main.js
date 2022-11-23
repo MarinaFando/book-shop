@@ -150,7 +150,7 @@ fetch("assets/books.json")
       const modal = document.createElement("div");
       modal.classList.add("modalcard");
       const popupImage = document.createElement("img");
-      popupImage.setAttribute("src", "/assets/images/close.svg");
+      popupImage.setAttribute("src", "assets/images/close.svg");
       modal.classList.add("modalcard");
 
       const popupTitle = document.createElement("h5");
