@@ -54,8 +54,9 @@ fetch("assets/books.json")
     const card = document.createElement("div");
     card.setAttribute("class", "card");
     const cardLeft = document.createElement("div");
+    cardLeft.setAttribute("draggable", "true");
     const cardLeftImage = document.createElement("img");
-    cardLeftImage.setAttribute("draggable", "true");
+
     cardLeftImage.setAttribute("src", `${book.imageLink}`);
     cardLeftImage.setAttribute("alt", `${book.title}`);
     cardLeft.setAttribute("class", "card-left");
@@ -97,7 +98,23 @@ fetch("assets/books.json")
     listFrag.appendChild(card);
     cardContainer.appendChild(listFrag);
 
-      function addBookToBag() {
+    cardLeft.addEventListener("dragstart", handleDragStart);
+    cardLeft.addEventListener("dragend", handleDragEnd);
+
+    function handleDragStart(e) {
+      const bookObject = {
+        "author": `${book.author}`,
+        "title": `${book.title}`,
+        "price": `${book.price}`
+      }
+      e.dataTransfer.setData("text/plain", JSON.stringify(bookObject));
+    }
+
+    function handleDragEnd(e) {
+      e.target.classList.add("dragendimage");
+    }
+
+    function addBookToBag() {
       const bagCard = document.createElement("div");
       bagCard.setAttribute("class", "bagcard");
       bagCardList.appendChild(bagCard);
@@ -168,10 +185,54 @@ fetch("assets/books.json")
   return err
 })
 
-
 sectionCatalog.appendChild(cardContainer)
 main.appendChild(sectionCatalog)
 main.appendChild(sectionBag);
 rootElement.appendChild(header);
 rootElement.appendChild(main);
 rootElement.append(fragment);
+
+const dropArea = document.querySelector(".bagcardlist");
+dropArea.addEventListener("dragover", handleDragOver);
+dropArea.addEventListener("drop", handleDragDrop);
+
+function handleDragOver(e) {
+  e.preventDefault();
+}
+
+function handleDragDrop(e) {
+  e.preventDefault();
+  const book = JSON.parse(e.dataTransfer.getData("text"));
+    const bagCard = document.createElement("div");
+    bagCard.setAttribute("class", "bagcard");
+    bagCardList.appendChild(bagCard);
+    const imgclose = document.createElement("img");
+    imgclose.setAttribute("src", "assets/images/close.svg");
+    bagCard.appendChild(imgclose);
+    imgclose.addEventListener("click", removeDroppedBook);
+
+  function removeDroppedBook(event) {
+    const bagBook = event.target.closest(".bagcard");
+    bagBook.parentNode.removeChild(bagBook);
+    totalSum = totalSum - +book.price;
+    total.textContent = `Total: ${totalSum}$`;
+  }
+
+    const author = document.createElement("p");
+    const title = document.createElement("h5");
+    const price = document.createElement("p");
+    author.classList.add("author");
+    title.classList.add("title");
+    price.classList.add("price");
+    author.textContent = `${book.author}`;
+    title.textContent = `${book.title}`;
+    price.textContent = `Price: ${book.price}$`;
+    bagCard.appendChild(title);
+    bagCard.appendChild(author);
+    bagCard.appendChild(price);
+
+    totalSum = totalSum + +book.price;
+    total.textContent = `Total: ${totalSum}$`;
+
+  e.currentTarget.append(bagCard);
+}
