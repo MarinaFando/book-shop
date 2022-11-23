@@ -101,7 +101,7 @@ h2 {
 }
 
 .bagcardlist {
-  min-height: 200px;
+  min-height: 300px;
   font-size: 14px;
   width: 100%;
   display: flex;
@@ -116,7 +116,7 @@ h2 {
   width: 100%;
   margin-bottom: 10px;
   border-bottom: 1px solid #093321;
-  padding: 12px;
+  padding: 12px 25px 12px 12px;
   border: 0.5px solid #636363;
   border-radius: 5px;
 }
@@ -150,14 +150,13 @@ h2 {
   transition: 0.3s;
   font-size: 12px;
   padding: 10px;
-  cursor: move;
 }
 
 .card-left {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  flex: 1;
+  cursor: move;
 }
 
 .card-left img {
@@ -244,16 +243,6 @@ button:not(:last-child) {
   width: 100%;
   padding: 12px 20px;
   margin: 4px 0;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.form__group--country {
-  width: 100%;
-  padding: 12px 10px;
-  margin: 4px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
